@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist - ShopVibe</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/shop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo" onclick="window.location.href='index.html'">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="gradient-text">ShopVibe</span>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="shop.html">Shop</a>
+                </div>
+                <div class="nav-icons">
+                    <a href="wishlist.html" class="icon-link active">
+                        <i class="fas fa-heart"></i>
+                        <span class="badge" id="wishlistCount">0</span>
+                    </a>
+                    <a href="cart.html" class="icon-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge" id="cartCount">0</span>
+                    </a>
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1><i class="fas fa-heart"></i> My Wishlist</h1>
+            <p>Your favorite items saved for later</p>
+        </div>
+    </section>
+
+    <section class="shop-section">
+        <div class="container">
+            <div class="products-grid" id="wishlistProducts"></div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 ShopVibe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage"></span>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', loadWishlist);
+        
+        function loadWishlist() {
+            const container = document.getElementById('wishlistProducts');
+            const wishlist = getWishlist();
+            
+            if (wishlist.length === 0) {
+                container.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:80px 20px;"><i class="fas fa-heart" style="font-size:100px; background:var(--gradient-2); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:20px;"></i><h3 style="font-size:28px; margin-bottom:15px;">Your wishlist is empty</h3><p style="color:var(--gray); margin-bottom:25px;">Save your favorite items here!</p><a href="shop.html" class="btn btn-primary">Start Shopping</a></div>';
+                return;
+            }
+            
+            container.innerHTML = wishlist.map(item => {
+                const discount = calculateDiscount(item.originalPrice, item.price);
+                return `
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="${item.image}" alt="${item.name}">
+                            <div class="product-actions">
+                                <button class="action-btn" onclick="removeFromWishlist(${item.id}); loadWishlist();">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">${item.name}</h3>
+                            <div class="product-rating">
+                                <div class="stars">${generateStars(item.rating)}</div>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">${formatCurrency(item.price)}</span>
+                                <span class="original-price">${formatCurrency(item.originalPrice)}</span>
+                                <span class="discount">${discount}% OFF</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart(${item.id}); removeFromWishlist(${item.id}); loadWishlist();">
+                                <i class="fas fa-shopping-cart"></i> Move to Cart
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+    </script>
+</body>
+</html>

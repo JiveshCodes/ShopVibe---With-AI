@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - ShopVibe</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/shop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation (same as home) -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo" onclick="window.location.href='index.html'">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="gradient-text">ShopVibe</span>
+                </div>
+                
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search for products..." id="searchInput">
+                    <div class="search-suggestions" id="searchSuggestions"></div>
+                </div>
+
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="shop.html" class="active">Shop</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+
+                <div class="nav-icons">
+                    <a href="wishlist.html" class="icon-link">
+                        <i class="fas fa-heart"></i>
+                        <span class="badge" id="wishlistCount">0</span>
+                    </a>
+                    <a href="cart.html" class="icon-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge" id="cartCount">0</span>
+                    </a>
+                    <a href="login.html" class="icon-link" id="userIcon">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Shop All Products</h1>
+            <p>Discover amazing products at unbeatable prices</p>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section class="shop-section">
+        <div class="container">
+            <div class="shop-layout">
+                <!-- Filters Sidebar -->
+                <aside class="filters-sidebar">
+                    <div class="filter-header">
+                        <h3><i class="fas fa-filter"></i> Filters</h3>
+                        <button class="clear-filters" onclick="clearFilters()">Clear All</button>
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div class="filter-group">
+                        <h4>Category</h4>
+                        <div class="filter-options" id="categoryFilters">
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="all" checked>
+                                <span>All Products</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="electronics">
+                                <span>Electronics</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="fashion">
+                                <span>Fashion</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="home">
+                                <span>Home & Living</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="beauty">
+                                <span>Beauty</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="sports">
+                                <span>Sports</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="books">
+                                <span>Books</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Price Filter -->
+                    <div class="filter-group">
+                        <h4>Price Range</h4>
+                        <div class="price-inputs">
+                            <input type="number" id="minPrice" placeholder="Min" min="0">
+                            <span>to</span>
+                            <input type="number" id="maxPrice" placeholder="Max">
+                        </div>
+                        <button class="apply-price-btn" onclick="applyFilters()">Apply</button>
+                    </div>
+
+                    <!-- Rating Filter -->
+                    <div class="filter-group">
+                        <h4>Rating</h4>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="radio" name="rating" value="0" checked>
+                                <span>All Ratings</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="rating" value="4">
+                                <span>4★ & above</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="rating" value="4.5">
+                                <span>4.5★ & above</span>
+                            </label>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Products Area -->
+                <div class="products-area">
+                    <!-- Toolbar -->
+                    <div class="products-toolbar">
+                        <div class="showing-results">
+                            Showing <strong id="resultCount">0</strong> products
+                        </div>
+                        <div class="sort-options">
+                            <label>Sort by:</label>
+                            <select id="sortSelect" onchange="applyFilters()">
+                                <option value="featured">Featured</option>
+                                <option value="newest">Newest</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="rating">Highest Rated</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div class="products-grid" id="productsGrid">
+                        <!-- Products loaded by JavaScript -->
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination" id="pagination">
+                        <!-- Pagination loaded by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as home) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-shopping-bag"></i> ShopVibe</h3>
+                    <p>Your one-stop destination for all your shopping needs.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Delhi, India</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope"></i> support@shopvibe.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ShopVibe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage"></span>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/shop.js"></script>
+</body>
+</html>

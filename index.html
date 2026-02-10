@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopVibe - Your Colorful Shopping Destination</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="gradient-text">ShopVibe</span>
+                </div>
+                
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search for products..." id="searchInput">
+                    <div class="search-suggestions" id="searchSuggestions"></div>
+                </div>
+
+                <div class="nav-links">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="shop.html">Shop</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+
+                <div class="nav-icons">
+                    <a href="wishlist.html" class="icon-link">
+                        <i class="fas fa-heart"></i>
+                        <span class="badge" id="wishlistCount">0</span>
+                    </a>
+                    <a href="cart.html" class="icon-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge" id="cartCount">0</span>
+                    </a>
+                    <a href="login.html" class="icon-link" id="userIcon">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Discover Your <span class="gradient-text">Style</span>
+                    </h1>
+                    <p class="hero-subtitle">Shop the latest trends with amazing deals and vibrant collections!</p>
+                    <div class="hero-buttons">
+                        <a href="shop.html" class="btn btn-primary">
+                            <span>Shop Now</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#featured" class="btn btn-secondary">
+                            <span>Explore</span>
+                            <i class="fas fa-compass"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="floating-card card-1">
+                        <i class="fas fa-shipping-fast"></i>
+                        <span>Free Shipping</span>
+                    </div>
+                    <div class="floating-card card-2">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure Payment</span>
+                    </div>
+                    <div class="floating-card card-3">
+                        <i class="fas fa-tag"></i>
+                        <span>Best Deals</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers Banner -->
+    <section class="offers-banner">
+        <div class="container">
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <i class="fas fa-truck"></i>
+                    <h3>Free Shipping</h3>
+                    <p>On orders above ₹999</p>
+                </div>
+                <div class="offer-card">
+                    <i class="fas fa-undo"></i>
+                    <h3>Easy Returns</h3>
+                    <p>30 days return policy</p>
+                </div>
+                <div class="offer-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Dedicated support team</p>
+                </div>
+                <div class="offer-card">
+                    <i class="fas fa-lock"></i>
+                    <h3>Secure Payment</h3>
+                    <p>100% protected payment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>Shop by <span class="gradient-text">Category</span></h2>
+                <p>Explore our vibrant collection</p>
+            </div>
+            <div class="categories-grid">
+                <a href="shop.html?category=electronics" class="category-card electronics">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Electronics</h3>
+                    <p>Latest gadgets</p>
+                </a>
+                <a href="shop.html?category=fashion" class="category-card fashion">
+                    <div class="category-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Fashion</h3>
+                    <p>Trendy styles</p>
+                </a>
+                <a href="shop.html?category=home" class="category-card home">
+                    <div class="category-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <h3>Home & Living</h3>
+                    <p>Decor & furniture</p>
+                </a>
+                <a href="shop.html?category=beauty" class="category-card beauty">
+                    <div class="category-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>Beauty</h3>
+                    <p>Cosmetics & care</p>
+                </a>
+                <a href="shop.html?category=sports" class="category-card sports">
+                    <div class="category-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3>Sports</h3>
+                    <p>Fitness gear</p>
+                </a>
+                <a href="shop.html?category=books" class="category-card books">
+                    <div class="category-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Books</h3>
+                    <p>Reading collection</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products" id="featured">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured <span class="gradient-text">Products</span></h2>
+                <p>Our handpicked collection just for you</p>
+            </div>
+            <div class="products-grid" id="featuredProducts">
+                <!-- Products will be loaded by JavaScript -->
+            </div>
+            <div class="text-center">
+                <a href="shop.html" class="btn btn-primary">
+                    <span>View All Products</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offer Banner -->
+    <section class="special-offer">
+        <div class="container">
+            <div class="offer-content">
+                <div class="offer-text">
+                    <span class="offer-tag">Limited Time Offer</span>
+                    <h2>Get <span class="gradient-text">50% OFF</span> on Your First Order!</h2>
+                    <p>Use code: <strong>FIRST50</strong> at checkout</p>
+                    <a href="shop.html" class="btn btn-light">
+                        <span>Shop Now</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="offer-visual">
+                    <div class="discount-circle">
+                        <span class="discount-number">50%</span>
+                        <span class="discount-text">OFF</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h2>Subscribe to Our Newsletter</h2>
+                <p>Get the latest updates on new products and upcoming sales</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>
+                        <i class="fas fa-shopping-bag"></i>
+                        ShopVibe
+                    </h3>
+                    <p>Your one-stop destination for all your shopping needs. Quality products, amazing prices!</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Delhi, India</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope"></i> support@shopvibe.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ShopVibe. All rights reserved. Made with <i class="fas fa-heart"></i> in India</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage"></span>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
