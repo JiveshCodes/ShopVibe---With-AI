@@ -2,6 +2,20 @@
 
 A fully functional, vibrant e-commerce website built with **HTML, CSS, and JavaScript** only!
 
+## ⚠️ Project Note 
+
+This project was developed as an **AI-assisted learning project**.
+
+The overall structure and feature ideas were generated with the help of AI, and my focus was on:
+- Understanding the complete codebase
+- Learning how a full e-commerce frontend works
+- Exploring UI/UX patterns and user flows
+- Studying state handling using JavaScript and `localStorage`
+- Experimenting with styles, layouts, and logic
+
+This repository is shared **for learning and demonstration purposes**, not as a production-ready or fully self-built system.
+
+---
 ## ✨ Features
 
 ### 🎨 Design
